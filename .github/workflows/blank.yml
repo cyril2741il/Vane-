@@ -1,0 +1,27 @@
+Global $X = -1, $Y = -1
+Global $aIn[3], $aLout, $aLst, $aOut, $aW
+Global $hDLL, $hF, $hgGet, $hgList, $hgListA, _
+    $hgNG, $hgNGin, $hgRun, $hI, $hV
+Global $iB, $iH, $iHgt, $iM, $iTmp, $iW, $iWid, $iZ
+Global $sDFn = @ScriptDir & "\$0vane.txt", $sIn = "", _
+    $sLst = "", $sOut = "", $sReport, $sStaIn = "", $sStaOut, _
+    $sStationIn, $sTmF, $stmFb, $sTxt, $sURL, _
+    $sVal = "", $sValIn
+Global $hWndListA, $fAction, $sLastSel, $wProcHandle, $tagNHMDR, _
+    $hWndFrom, $iCode
+
+If $CmdLine[0] Then
+    For $k = 1 To $CmdLine[0]
+        $sIn &= $CmdLine[$k]
+        If $k < $CmdLine[0] Then $sIn &= " "
+    Next
+EndIf
+$sURL = "http://www.aviationweather.gov/docs/metar/stations.txt"
+$sTmF = @TempDir & "\stations.txt"
+$sTmFb = @TempDir & "\stations.tx0"
+If FileExists($sTmF) Then FileCopy($sTmF, $sTmFb, 1)
+$hI = InetGet($sURL, $sTmF, 1, 0)
+InetClose($hI)
+If Not $hI Then
+    If FileExists($sTmFb) Then
+        FileCopy($sTmFb, $sTmF, 1)
