@@ -1,0 +1,2 @@
+# Vane-
+#Region ;**** Directives created by AutoIt3Wrapper_GUI **** #AutoIt3Wrapper_Outfile=Vane.exe #AutoIt3Wrapper_UseUpx=y #AutoIt3Wrapper_Compile_Both=y #AutoIt3Wrapper_UseX64=y #AutoIt3Wrapper_AU3Check_Parameters=-w 3 -w 4 -w 5 -w 6 -d #AutoIt3Wrapper_Run_Au3Stripper=y #EndRegion ;**** Directives created by AutoIt3Wrapper_GUI **** ; ; Vane.exe -- Get METAR weather reports from around the world ; CLD rev. 11/29/2020
